@@ -1,98 +1,80 @@
-import React from 'react'
-import { Link } from 'gatsby'
-import github from '../img/github-icon.svg'
-import logo from '../img/logo.svg'
+import { graphql, useStaticQuery, Link } from 'gatsby';
+import React, { useState } from 'react';
+//import logo from '../img/logo.svg';
 
-const Navbar = class extends React.Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      active: false,
-      navBarActiveClass: '',
-    }
-  }
-
-  toggleHamburger = () => {
-    // toggle the active boolean in the state
-    this.setState(
-      {
-        active: !this.state.active,
-      },
-      // after state has been updated,
-      () => {
-        // set the class in state for the navbar accordingly
-        this.state.active
-          ? this.setState({
-              navBarActiveClass: 'is-active',
-            })
-          : this.setState({
-              navBarActiveClass: '',
-            })
+function Navbar() {
+  const [isExpanded, toggleExpansion] = useState(false);
+  const { site } = useStaticQuery(graphql`
+    query SiteTitleQuery {
+      site {
+        siteMetadata {
+          title
+        }
       }
-    )
-  }
+    }
+  `);
 
-  render() {
-    return (
-      <nav
-        className="navbar is-transparent"
-        role="navigation"
-        aria-label="main-navigation"
-      >
-        <div className="container">
-          <div className="navbar-brand">
-            <Link to="/" className="navbar-item" title="Logo">
-              <img src={logo} alt="Kaldi" style={{ width: '88px' }} />
-            </Link>
-            {/* Hamburger menu */}
-            <div
-              className={`navbar-burger burger ${this.state.navBarActiveClass}`}
-              data-target="navMenu"
-              onClick={() => this.toggleHamburger()}
+  return (
+    <header className='bg-green-700'>
+      <div className='flex flex-wrap items-center justify-between max-w-4xl p-4 mx-auto md:p-8'>
+        <Link to='/'>
+          <h1 className='flex items-center text-white no-underline'>
+            <svg
+              className='w-8 h-8 mr-2 fill-current'
+              height='54'
+              viewBox='0 0 54 54'
+              width='54'
+              xmlns='http://www.w3.org/2000/svg'
             >
-              <span />
-              <span />
-              <span />
-            </div>
-          </div>
-          <div
-            id="navMenu"
-            className={`navbar-menu ${this.state.navBarActiveClass}`}
+              <path d='M13.5 22.1c1.8-7.2 6.3-10.8 13.5-10.8 10.8 0 12.15 8.1 17.55 9.45 3.6.9 6.75-.45 9.45-4.05-1.8 7.2-6.3 10.8-13.5 10.8-10.8 0-12.15-8.1-17.55-9.45-3.6-.9-6.75.45-9.45 4.05zM0 38.3c1.8-7.2 6.3-10.8 13.5-10.8 10.8 0 12.15 8.1 17.55 9.45 3.6.9 6.75-.45 9.45-4.05-1.8 7.2-6.3 10.8-13.5 10.8-10.8 0-12.15-8.1-17.55-9.45-3.6-.9-6.75.45-9.45 4.05z' />
+            </svg>
+            <span className='text-xl font-bold tracking-tight'>
+              {site.siteMetadata.title}
+            </span>
+          </h1>
+        </Link>
+
+        <button
+          className='items-center block px-3 py-2 text-white border border-white rounded md:hidden'
+          onClick={() => toggleExpansion(!isExpanded)}
+        >
+          <svg
+            className='w-3 h-3 fill-current'
+            viewBox='0 0 20 20'
+            xmlns='http://www.w3.org/2000/svg'
           >
-            <div className="navbar-start has-text-centered">
-              <Link className="navbar-item" to="/about">
-                About
-              </Link>
-              <Link className="navbar-item" to="/products">
-                Products
-              </Link>
-              <Link className="navbar-item" to="/blog">
-                Blog
-              </Link>
-              <Link className="navbar-item" to="/contact">
-                Contact
-              </Link>
-              <Link className="navbar-item" to="/contact/examples">
-                Form Examples
-              </Link>
-            </div>
-            <div className="navbar-end has-text-centered">
-              <a
-                className="navbar-item"
-                href="https://github.com/netlify-templates/gatsby-starter-netlify-cms"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <span className="icon">
-                  <img src={github} alt="Github" />
-                </span>
-              </a>
-            </div>
-          </div>
-        </div>
-      </nav>
-    )
-  }
+            <title>Menu</title>
+            <path d='M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z' />
+          </svg>
+        </button>
+
+        <nav
+          className={`${
+            isExpanded ? `block` : `hidden`
+          } md:block md:items-center w-full md:w-auto`}
+        >
+          {[
+            {
+              route: `/about`,
+              title: `About`,
+            },
+            {
+              route: `/contact`,
+              title: `Contact`,
+            },
+          ].map((link) => (
+            <Link
+              className='block mt-4 text-white no-underline md:inline-block md:mt-0 md:ml-6'
+              key={link.title}
+              to={link.route}
+            >
+              {link.title}
+            </Link>
+          ))}
+        </nav>
+      </div>
+    </header>
+  );
 }
 
-export default Navbar
+export default Navbar;
