@@ -1,4 +1,8 @@
-@import url(//db.onlinewebfonts.com/c/33ca94f43a53fc634323a6fe191ffd64?family=TrendSansW00-Four);
+@font-face {
+  font-family: 'trend';
+  src: url('../../static/fonts/33ca94f43a53fc634323a6fe191ffd64.woff')
+    format('woff');
+}
 
 @tailwind base;
 @tailwind components;
@@ -16,7 +20,7 @@ html {
 }
 .hero-text {
   @apply text-white;
-  font-family: TrendSansW00-Four;
+  font-family: trend;
   font-size: 5vw;
 }
 
