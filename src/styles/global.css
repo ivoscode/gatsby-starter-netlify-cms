@@ -1,3 +1,25 @@
+@import url(//db.onlinewebfonts.com/c/33ca94f43a53fc634323a6fe191ffd64?family=TrendSansW00-Four);
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+html {
+  background-image: url('../img/background.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+.hero-text {
+  @apply text-white;
+  font-family: TrendSansW00-Four;
+  font-size: 5vw;
+}
+
+.hero-line {
+  z-index: 0;
+}
