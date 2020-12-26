@@ -11,7 +11,7 @@ const Hero = () => {
           className='hero-line absolute  -left-24 top-2  z-0 w-72'
           src={line}
         />
-        <p className='hero-text  w-2/3'>BE EFFECTIVE IN YOUR BODY </p>
+        <p className='hero-text   w-2/3'>BE EFFECTIVE IN YOUR BODY </p>
 
         <div className='text-white'>
           <h1>Hi, I'm Marina Muraskins</h1>
@@ -27,15 +27,12 @@ const Hero = () => {
           </p>
         </div>
       </div>
+      {/*
+@import url(//db.onlinewebfonts.com/c/33ca94f43a53fc634323a6fe191ffd64?family=TrendSansW00-Four);
+
+*/}
     </div>
   );
 };
 
 export default Hero;
-
-{
-  /*
-@import url(//db.onlinewebfonts.com/c/33ca94f43a53fc634323a6fe191ffd64?family=TrendSansW00-Four);
-
-*/
-}
