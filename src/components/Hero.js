@@ -32,3 +32,10 @@ const Hero = () => {
 };
 
 export default Hero;
+
+{
+  /*
+@import url(//db.onlinewebfonts.com/c/33ca94f43a53fc634323a6fe191ffd64?family=TrendSansW00-Four);
+
+*/
+}
