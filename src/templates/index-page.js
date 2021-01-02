@@ -17,7 +17,7 @@ export const IndexPageTemplate = ({
   intro,
 }) => (
   <div className='relative'>
-    <div className=' bg-black opacity-70 absolute h-full w-full'></div>
+    <div className=' bg-black opacity-60 absolute h-full w-full'></div>
     <div className='relative'>
       <Hero />
 

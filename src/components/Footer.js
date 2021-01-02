@@ -1,8 +1,6 @@
 import React from 'react';
 import { Link } from 'gatsby';
 
-import facebook from '../img/social/facebook.svg';
-import instagram from '../img/social/instagram.svg';
 import ContactForm from './ContactForm';
 
 const Footer = () => {
@@ -68,22 +66,6 @@ export const NavLinks = () => {
           </li>
         </ul>
       </section>
-
-      <a title='facebook' href='https://facebook.com'>
-        <img
-          src={facebook}
-          alt='Facebook'
-          style={{ width: '1em', height: '1em' }}
-        />
-      </a>
-
-      <a title='instagram' href='https://instagram.com'>
-        <img
-          src={instagram}
-          alt='Instagram'
-          style={{ width: '1em', height: '1em' }}
-        />
-      </a>
     </>
   );
 };

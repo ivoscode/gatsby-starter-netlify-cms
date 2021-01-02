@@ -1,5 +1,8 @@
 import { Link } from 'gatsby';
 import React, { useState } from 'react';
+import facebook from '../img/social/facebook.webp';
+import instagram from '../img/social/instagram.webp';
+
 //import logo from '../img/logo.svg';
 
 function Navbar() {
@@ -49,10 +52,6 @@ function Navbar() {
                 route: `/work`,
                 title: `Work With Me`,
               },
-              {
-                route: `/contact`,
-                title: `Contact`,
-              },
             ].map((link) => (
               <Link
                 className='block mt-4 text-white no-underline md:inline-block md:mt-0 md:ml-6'
@@ -66,8 +65,39 @@ function Navbar() {
         </div>
       </div>
       <div className='bg-white h-16 w-full'>
-        <div className='mx-auto w-11/12 border-black border-2 h-full'>
-          inner contents
+        <div className='mx-auto flex justify-between w-11/12 border-black border-2 h-full'>
+          <div className='my-auto w-1/3 '>
+            <a
+              className='inline-block mx-5'
+              title='facebook'
+              href='https://facebook.com'
+            >
+              <img
+                src={facebook}
+                alt='Facebook'
+                style={{ width: '1.6rem', height: '1.6rem' }}
+              />
+            </a>
+            <a
+              className='inline-block'
+              title='instagram'
+              href='https://instagram.com'
+            >
+              <img
+                src={instagram}
+                alt='Instagram'
+                style={{ width: '1.6rem', height: '1.6rem' }}
+              />
+            </a>
+          </div>
+          <div className=' w-36'>
+            <a
+              href='/'
+              className='inline-block green h-full w-full text-center '
+            >
+              Contact
+            </a>
+          </div>
         </div>
       </div>
     </header>

@@ -2,6 +2,7 @@
   font-family: 'trend';
   src: url('../../static/fonts/33ca94f43a53fc634323a6fe191ffd64.woff')
     format('woff');
+  font-display: swap;
 }
 
 @tailwind base;
@@ -19,11 +20,10 @@ html {
   background-size: cover;
 }
 .hero-text {
-  @apply text-white;
+  color: rgb(186, 186, 186);
   font-family: trend;
   font-size: 5vw;
 }
-
-.hero-line {
-  z-index: 0;
+.green {
+  background-color: rgb(195, 255, 91);
 }
